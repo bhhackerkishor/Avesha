@@ -31,7 +31,7 @@ function SuccessContent() {
         
         <h1 className="text-3xl font-black mb-2">Registration Successful!</h1>
         <p className="text-gray-500 dark:text-gray-400 mb-8">
-          You're all set for AVESHA'26. We've received your application.
+          You&apos;re all set for AVESHA&apos;26. We&apos;ve received your application.
         </p>
 
         <div className="bg-gray-50 dark:bg-zinc-950 rounded-2xl p-6 mb-8 border border-gray-100 dark:border-zinc-800">

@@ -51,7 +51,7 @@ export default function Home() {
           </span>
 
           <h1 className="text-6xl md:text-8xl font-extrabold tracking-tight mb-6">
-            AVESHA<span className="text-blue-600">'26</span>
+            AVESHA<span className="text-blue-600">`&apos;26</span>
           </h1>
 
           <p className="text-xl md:text-2xl text-gray-600 mb-10 max-w-2xl mx-auto leading-relaxed">
@@ -181,7 +181,7 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-12 border-t border-gray-200 text-center">
         <p className="text-gray-600">
-          © 2026 AVESHA'26 | Dept of EEE | All Rights Reserved
+          © 2026 AVESHA`&apos;26 | Dept of EEE | All Rights Reserved
         </p>
       </footer>
 
