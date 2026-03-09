@@ -63,17 +63,41 @@ export default function RegisterPage() {
     if (currentStep > 1) setCurrentStep(currentStep - 1);
   };
 
+  const MAX_EVENTS = 3;
+
   const handleTechEventToggle = (event: string) => {
-    const updated = formData.technicalEvents.includes(event)
+    const isSelected = formData.technicalEvents.includes(event);
+  
+    const totalSelected =
+      formData.technicalEvents.length + formData.nonTechnicalEvents.length;
+  
+    if (!isSelected && totalSelected >= MAX_EVENTS) {
+      toast.error("You can select a maximum of 3 events only");
+      return;
+    }
+  
+    const updated = isSelected
       ? formData.technicalEvents.filter((e) => e !== event)
       : [...formData.technicalEvents, event];
+  
     updateFormData({ technicalEvents: updated });
   };
-
+  
   const handleNonTechEventToggle = (event: string) => {
-    const updated = formData.nonTechnicalEvents.includes(event)
+    const isSelected = formData.nonTechnicalEvents.includes(event);
+  
+    const totalSelected =
+      formData.technicalEvents.length + formData.nonTechnicalEvents.length;
+  
+    if (!isSelected && totalSelected >= MAX_EVENTS) {
+      toast.error("You can select a maximum of 3 events only");
+      return;
+    }
+  
+    const updated = isSelected
       ? formData.nonTechnicalEvents.filter((e) => e !== event)
       : [...formData.nonTechnicalEvents, event];
+  
     updateFormData({ nonTechnicalEvents: updated });
   };
 
@@ -111,7 +135,9 @@ export default function RegisterPage() {
     } finally {
       setIsSubmitting(false);
     }
+
   };
+  
 
   return (
     <div className="min-h-screen py-12 px-4 bg-gray-50 dark:bg-zinc-950">
