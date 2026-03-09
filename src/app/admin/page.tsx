@@ -18,10 +18,13 @@ import toast from "react-hot-toast";
 
 export default function AdminDashboard() {
   const [data, setData] = useState<any[]>([]);
-  const [stats, setStats] = useState<any>({ total: 0, technical: 0, nonTechnical: 0, revenue: 0 });
+  const [stats, setStats] = useState<any>({ total: 0, technical: 0, nonTechnical: 0, TotalAmount: 0 });
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
   const [filterEvent, setFilterEvent] = useState("");
+  const ADMIN_PASSWORD = "avesha_admin_2026";
+  const [authorized, setAuthorized] = useState(false);
+const [password, setPassword] = useState("");
 
   const fetchData = async () => {
     try {
@@ -63,7 +66,36 @@ export default function AdminDashboard() {
       <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600"></div>
     </div>
   );
-
+  if (!authorized) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-zinc-950">
+        <div className="bg-white dark:bg-zinc-900 p-8 rounded-2xl shadow-xl space-y-4 w-[350px]">
+          <h2 className="text-xl font-bold text-center">Admin Access</h2>
+  
+          <input
+            type="password"
+            placeholder="Enter admin password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            className="w-full px-4 py-3 rounded-lg border border-gray-200 dark:border-zinc-800 bg-gray-50 dark:bg-zinc-950"
+          />
+  
+          <button
+            onClick={() => {
+              if (password === ADMIN_PASSWORD) {
+                setAuthorized(true);
+              } else {
+                toast.error("Incorrect password");
+              }
+            }}
+            className="w-full bg-blue-600 text-white py-3 rounded-lg font-bold"
+          >
+            Login
+          </button>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="p-8 max-w-7xl mx-auto space-y-8">
       <div className="flex justify-between items-center">
@@ -128,6 +160,7 @@ export default function AdminDashboard() {
               <option>Connectricals</option>
               <option>Chess</option>
               <option>Survival Instinct (Free Fire)</option>
+              <option>Mischief Marathon</option>
             </optgroup>
           </select>
         </div>
