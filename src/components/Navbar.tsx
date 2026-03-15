@@ -27,7 +27,7 @@ export default function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-sky-100">
       <div className="max-w-7xl mx-auto px-6 py-5 flex items-center justify-between">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-sky-500 rounded-2xl flex items-center justify-center text-white font-bold text-2xl">A</div>
+          <div className="w-20 h-20 rounded-2xl flex items-center justify-center"><img src="/uploads/Avesha_logo.png"></img></div>
           <div>
             <h1 className="font-bold text-2xl tracking-tighter text-sky-950">AVESHA <span className="text-sky-500">2026</span></h1>
             <p className="text-[10px] text-slate-500 -mt-1">National Level Technical Symposium</p>
@@ -40,7 +40,7 @@ export default function Navbar() {
             <button
               key={link.href}
               onClick={() => scrollToSection(link.href)}
-              className="hover:text-sky-600 transition-colors"
+              className="text-sky-600 transition-colors hover:text-sky-500"
             >
               {link.label}
             </button>
@@ -75,7 +75,7 @@ export default function Navbar() {
               <button
                 key={link.href}
                 onClick={() => scrollToSection(link.href)}
-                className="text-left hover:text-sky-600"
+                className="text-left text-sky-600 hover:text-sky-500"
               >
                 {link.label}
               </button>

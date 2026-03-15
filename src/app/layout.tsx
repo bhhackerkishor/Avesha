@@ -17,7 +17,9 @@ const spaceGrotesk = Space_Grotesk({
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className={`${inter.variable} ${spaceGrotesk.variable}`}>
-      <body>{children}</body>
+      <body className="h-full antialiased">
+        {children}
+      </body>
     </html>
   );
 }

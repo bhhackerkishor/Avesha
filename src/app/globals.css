@@ -13,6 +13,15 @@
       --foreground: oklch(1 0 0);
     }
   }
+  html, body {
+    @apply h-full overflow-x-hidden;   /* prevent horizontal scroll & ensure full height chain */
+    margin: 0;
+    padding: 0;
+  }
+
+  #__next {
+    @apply min-h-full flex flex-col;   /* Next.js app wrapper participates in height */
+  }
 
   body {
     background: var(--background);
