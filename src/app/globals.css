@@ -1,49 +1,51 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+/* Optional: Add your custom base styles here (in @layer base) */
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: oklch(1 0 0);
+    --foreground: oklch(0.145 0 0);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --background: oklch(0.145 0 0);
+      --foreground: oklch(1 0 0);
+    }
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-feature-settings: "cv03", "cv04", "cv11";
   }
 }
 
-
-
-body {
-  background: var(--background);
-  color: var(--foreground);
+/* Your previous custom classes go here (they now work automatically) */
+.glass {
+  background: color-mix(in srgb, white 85%, transparent);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid color-mix(in srgb, white 30%, transparent);
 }
 
-::selection {
-  background: rgba(59, 130, 246, 0.2);
-  color: #2563eb;
+.hero-bg {
+  background: linear-gradient(135deg, #0ea5e9 0%, #38bdf8 50%, #bae6fd 100%);
 }
 
-::-webkit-scrollbar {
-  width: 8px;
+.card-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-::-webkit-scrollbar-track {
-  background: transparent;
+.card-hover:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgb(14 165 233 / 0.25);
 }
 
-::-webkit-scrollbar-thumb {
-  background: #e2e2e2;
-  border-radius: 10px;
-}
-
-.dark ::-webkit-scrollbar-thumb {
-  background: #27272a;
+/* If you want to customize theme (colors, fonts, etc.) → do it here */
+@theme {
+  --color-primary: #38bdf8;        /* sky blue */
+  --color-secondary: #ffffff;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --font-display: 'Space Grotesk', sans-serif;
 }
