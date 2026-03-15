@@ -30,8 +30,8 @@ export default function Footer() {
         <div>
           <div className="text-slate-400 text-sm tracking-widest mb-6">FOLLOW US</div>
           <div className="flex gap-6">
-            {[Instagram, Linkedin, Twitter].map((Icon, i) => (
-              <a key={i} href="#" className="hover:text-sky-400 transition-colors">
+            {[Instagram].map((Icon, i) => (
+              <a key={i} href="https://www.instagram.com/avesha_2026" className="hover:text-sky-400 transition-colors">
                 <Icon size={28} />
               </a>
             ))}
