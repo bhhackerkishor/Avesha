@@ -10,8 +10,6 @@ export default function Contact() {
             <a href="mailto:avesha.2k26@gmail.com" className="block group">
               <div className="text-4xl font-semibold group-hover:text-sky-300 transition-colors">avesha.2k26@gmail.com</div>
             </a>
-            
-            <a href="tel:6380147100" className="block text-5xl font-bold tracking-tighter hover:text-sky-400 transition-colors">63801 47100</a>
           </div>
   
           <div className="mt-20 text-sm text-slate-400">
